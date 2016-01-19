@@ -1,0 +1,9 @@
+% D=unifrnd(10,20002,1,1e6);
+D=15+10*rand(1,1e6);
+ro=20;
+ave=10^ro;
+alpha=4;
+PL_npc=D.^(-alpha)
+PL_pc=(D.^(-alpha+ro))/ave
+PC_gain = mean(PL_pc)/mean(PL_npc)
+PC_gain = mean(PL_pc)/mean(PL_npc

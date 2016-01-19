@@ -14,7 +14,7 @@ v = -2:1:100;
 lambda = 1e-4:1e-4:15e-4;
 L=550;      
 SimArea=(2*L)^2; % Area of the network
-Nsamp=5000; % Generate Nsamp samples for each intensity
+Nsamp=6500; % Generate Nsamp samples for each intensity
 s_pc=zeros(1,length(lambda));s_npc=s_pc;
 u=20;
 sigma20=1e-10;
@@ -64,7 +64,7 @@ for i=1:length(lambda)
 		SumSINR=SumSINR+sum((Pt*H*D^(-alpha))./(sum(Pi.*G.*(DisXt.^(-alpha)))+sigma20));
         SINR_pc=(Pt*H*D^(-alpha))./(sum(Pi.*G.*(DisXt.^(-alpha)))+sigma20);
          if (SINR_pc>1)
-            s_pc(i)=s_pc(i)+1;
+            s_pc(i)=s_pc(i)+1
          end
          
          % Calculate the SIR_npc
@@ -109,9 +109,9 @@ plot(lambda,P_suc4,'g--','LineWidth',2);
 grid on
 
 % Simulation plotting
-plot(lambda, suc_npc,'ro','MarkerSize',8);
+plot(lambda, s_npc,'ro','MarkerSize',8);
 hold on
-plot(lambda, suc_pc, 'bo','MarkerSize',8);
+plot(lambda, s_pc, 'bo','MarkerSize',8);
 hold on
 
 % Labelling and Legending

@@ -62,14 +62,16 @@ for i=1:length(lambda)
 
         % Calculate the SIR
 		SumSINR=SumSINR+sum((Pt*H*D^(-alpha))./(sum(Pi.*G.*(DisXt.^(-alpha)))+sigma20));
-        SINR_pc=(Pt*H*D^(-alpha))./(sum(Pi.*G.*(DisXt.^(-alpha)))+sigma20);
+%         SINR_pc=(Pt*H*D^(-alpha))./(sum(Pi.*G.*(DisXt.^(-alpha)))+sigma20);
+         SINR_pc=(Pt*H*D^(-alpha))./1e-5;
          if (SINR_pc>1)
             s_pc(i)=s_pc(i)+1;
          end
          
          % Calculate the SIR_npc
         SumSINR_npc=SumSINR_npc+sum((H*D^(-alpha))./(sum(G.*(DisXt.^(-alpha)))+sigma20));
-        SINR_npc=(H*D^(-alpha))./(sum(G.*(DisXt.^(-alpha)))+sigma20);  
+%         SINR_npc=(H*D^(-alpha))./(sum(G.*(DisXt.^(-alpha)))+sigma20);  
+        SINR_npc=(H*D^(-alpha))./1e-5;
         if (SINR_npc>1)
            s_npc(i)=s_npc(i)+1;
         end
